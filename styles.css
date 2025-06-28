@@ -1,13 +1,10 @@
-/* CSS BY YOUR NAME */
+/* CSS BY ASHLEY CHENEY */
 
-/* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* IMPORTED FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* CSS RESET */
-/* http://meyerweb.com/eric/tools/css/reset/
-v2.0 | 20110126
-License: none (public domain)
-*/
+/* CSS REST */
+/* http://meyerweb.com/eric/tools/css/reset/ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,144 +15,322 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup, 
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font: inherit;
+  font-size: 100%;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-    display: block;
+  display: block;
 }
 body {
-    line-height: 1;
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--black);
+  line-height: 1;
 }
-ol, ul {
-    list-style: none;
-}
+ol, ul { list-style: none; }
 blockquote, q {
-    quotes: none;
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 /* ROOT VARIABLES */
 :root {
-    --blue: #007BFF;
-    --red: #FF4500;
-    --white: #EAEAEA;
-    --black: #000000;
-    --charcoal: #333333;
-    --font: "Inter", sans-serif;
+  --blue: #007BFF;
+  --red: #FF4500;
+  --white: #F9F9F9;
+  --black: #000000;
+  --charcoal: #333333;
+  --font: 'Inter', sans-serif;
 }
 
-/* GLOBAL STYLES (MOBILE FIRST (SMALL) */
-
-/* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
-
-/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
+/* GLOBAL STYLES (mobile first/small) */
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 90%;
 }
 
-/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 1rem;
-    overflow: hidden;
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  padding: 1.5rem 2rem;
+}
+header h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+header h1::before {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.75rem;
+  display: inline-block;
+  background: url('images/vanguard-logo.svg') no-repeat center/contain;
 }
 
-/* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
-    content: "";
-
-    left:-.5rem;
-    width: 3.75rem;
-    height: 3.75rem;
-    background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+.main-nav ul {
+  gap: 1.5rem;
+  display: flex;
 }
-/* THIS ONE IS DONE FOR YOU */
+.main-nav a {
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--blue);
+}
+.main-nav a:hover {
+  color: var(--red);
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('images/vanguard-hero.jpg') center center/cover no-repeat;
+  height: 80vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.hero-content {
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.hero h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.hero p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+.hero button {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: var(--blue);
+  color: var(--white);
+  transition: background 0.3s ease;
+}
+.hero button:hover {
+  background: var(--red);
+}
+
+.expertise-section,
+.services-section {
+  padding: 4rem 2rem;
+  color: var(--black);
+  background: var(--white);
+}
+
+.services-grid {
+  margin-top: 2rem;
+  gap: 1.5rem;
+  display: grid;
+}
+
+.service-box {
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: var(--white);
+  background: var(--blue);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.service-box:hover {
+  transform: translateY(-5px);
+}
+.service-box h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.results-section {
+  padding: 4rem 2rem;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.results-grid {
+  gap: 2rem;
+  flex-direction: column;
+  display: flex;
+}
+#profits {
+  flex: 1;
+}
+.profits-table {
+  background: var(--black);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.profits-table table {
+  width: 100%;
+  color: var(--white);
+}
+.profits-table th,
+.profits-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--charcoal);
+}
+
 #bar-chart {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    align-items: flex-end;
-    justify-content: space-around;
-    gap: 1rem;
-    height: 300px;
-    width: 100%;
-    max-width: 800px;
-    padding: 1rem;
-    position: relative;
+  margin-top: 1rem;
+  gap: 1rem;
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
-/* ADD ON TRANSITION ON HEIGHT */
+
 .bar {
-    width: 50px;
-    background: var(--charcoal);
-    border-radius: 10px;
-    position: relative;
-    transition: ;
-    height: 0;
+  width: 40px;
+  height: 0;
+  border-radius: 5px;
+  background: var(--charcoal);
+  animation: stepUp 1s ease forwards;
+  position: relative;
 }
-/* THIS ONE IS DONE FOR YOU */
 .bar::after {
-    content: attr(data-year);
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--white);
+  color: var(--white);
+  bottom: -20px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  content: attr(data-year);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 @keyframes stepUp {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: var(--height);
-    }
-}
-/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-.bar {
-    animation: stepUp 1s ease-in-out forwards;
+  0% { height: 0; }
+  100% { height: var(--height); }
 }
 
+.contact-section,
+#contact {
+  background: var(--black);
+  padding: 4rem 2rem;
+  color: var(--white);
+}
 
-/* MEDIA QUERIES (MEDIUM) */ 
+.contact-title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
 
-    #results {
-        grid-template-columns: 1fr 1fr;
-    }
-    .results-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
-    }
+.contact-subtitle {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
 
+form {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
 
-/* MEDIA QUERIES (LARGE) */
+.form-row {
+  gap: 1.5rem;
+  flex-direction: column;
+  display: flex;
+}
+
+.form-group {
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+input,
+textarea {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+button[type="submit"] {
+  cursor: pointer;
+  background: var(--blue);
+  border-radius: 8px;
+  border: none;
+  padding: 1rem;
+  color: var(--white);
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+button[type="submit"]:hover {
+  background: var(--red);
+}
+
+footer {
+  background: var(--black);
+  padding: 2rem 1rem;
+  color: var(--white);
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer a {
+  text-decoration: underline;
+  color: var(--blue);
+}
+
+/* MEDIA QUERY (medium) */
+@media (min-width: 800px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .form-row {
+    flex-direction: row;
+  }
+  .results-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* MEDIA QUERY (large) */
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
